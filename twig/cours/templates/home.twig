@@ -1,0 +1,11 @@
+<p>Bonjour {{ person.civility.firstName ~ ' ' ~ person.civility.lastName }} !</p>
+
+<p>Vous habitez :</p>
+<ul>
+    <li>{{ person.address.street }}</li>
+    <li>{{ person.address.zip ~ ' ' ~ person.address.city }}</li>
+</ul>
+
+
+<!-- équivalent PHP -->
+<!-- <p>Bonjour <?= $person['civility']['firstName'] . ' ' . $person['civility']['lastName'] ?> !</p> -->

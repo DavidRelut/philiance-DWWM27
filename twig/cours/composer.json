@@ -1,0 +1,17 @@
+{
+    "name": "davidhurtrel/cours",
+    "autoload": {
+        "psr-4": {
+            "Davidhurtrel\\Cours\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "davidHurtrel",
+            "email": "david.hurtrel@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.4"
+    }
+}
