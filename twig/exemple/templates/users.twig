@@ -1,0 +1,65 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}membres{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+{% endblock %}
+
+{% block main %}
+
+    <div class="row" id="users">
+        
+        <div class="col-12 text-center mb-5">
+            <h1>Membres</h1>
+        </div>
+
+        <div class="col-12">
+            <table class="table text-center table-hover">
+                <thead class="table-dark">
+                    <tr class="text-uppercase">
+                        <th>N°</th>
+                        <th colspan="2">Pseudo</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {# {% for i in 0..10 %}
+                        {{ i }}
+                    {% endfor %} #}
+                    {% for user in membres|reverse %}
+                        <tr>
+                            <td>{# {{ user.id }} - #}{{ loop.revindex }}</td>
+                            <td><img src="{{ asset('img/user/' ~ user.img) }}" alt="avatar {{ user.nickname }}"></td>
+                            <td>{{ user.nickname }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>
+                                <a href="#" class="text-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="#" class="text-danger"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Aucun membre trouvé (pour le moment)</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="table-dark">
+                    <tr>
+                        <th>{{ membres|length }}</th>
+                        <th colspan="4"></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="col-12 text-end mt-4">
+            <a href="#" class="btn btn-outline-success">Ajouter</a>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+    "name": "davidhurtrel/exemple",
+    "require": {
+        "twig/twig": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Davidhurtrel\\Exemple\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "davidHurtrel",
+            "email": "david.hurtrel@gmail.com"
+        }
+    ]
+}

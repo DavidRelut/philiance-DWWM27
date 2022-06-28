@@ -1,0 +1,34 @@
+/* ******************** RESET ******************** */
+
+    * {
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+        list-style-type: none;
+    }
+
+/* ******************** MAIN ******************** */
+
+    main {
+        min-height: calc(100vh - 56px - 64px);
+    }
+
+    table img {
+        height: 50px;
+    }
+
+    #users table img,
+    #possessions table td:nth-of-type(4) img {
+        border-radius: 25px;
+    }
+
+    table td {
+        vertical-align: middle;
+    }
+
+    #games table td:nth-of-type(3),
+    #users table td:nth-of-type(3),
+    #possessions table td:nth-of-type(3),
+    #possessions table td:nth-of-type(5) {
+        text-align: left;
+    }

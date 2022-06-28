@@ -1,0 +1,76 @@
+{% extends 'base.twig' %}
+
+{% block desription %}Liste des jeux des membres de l'association Table Top Games.{% endblock %}
+
+{% block title %}jeux{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block main %}
+
+    <div class="row" id="games">
+
+        <div class="col-12 text-center mb-5">
+            <h1>Jeux</h1>
+        </div>
+
+        {# <pre>
+            {{ dump(jeux) }}
+        </pre> #}
+
+        <div class="col-12">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr class="text-uppercase">
+                        <th>N°</th>
+                        <th colspan="2">Nom</th>
+                        <th>Catégorie</th>
+                        <th>Éditeur</th>
+                        <th>Joueurs</th>
+                        <th>Durée</th>
+                        <th>Âge min.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if jeux is not empty %}
+                        {% for jeu in jeux|reverse %} {# foreach ($games as $game) {} #}
+                            <tr>
+                                <td>{{ jeu.id }}</td> {# <?= $game['id'] ?> #}
+                                <td><img src="{{ asset('img/game/' ~ jeu.img) }}" alt="photo principale {{ jeu.name }}"></td>
+                                <td>{{ truncate(jeu.name, 45) }}</td>
+                                <td>{{ jeu.category|truncate(45, '...') }}</td>
+                                <td>{{ jeu.editor }}</td>
+                                <td>{{ jeu.min_players ~ ' - ' ~ jeu.max_players }}</td> {# <?= $jeu['min_players'] . ' - ' . $jeu['max_players'] #}
+                                <td>{{ jeu.duration }}</td>
+                                <td>{{ jeu.minimum_age }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center">Aucun jeu n'a été trouvé (pour le moment)</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+                {% if jeux is not empty %}
+                    {% set totalMinPlayers, totalMaxPlayers, totalMinimumAge = 0, 0, 0 %} {# déclaration de variables #}
+                    {% for jeu in jeux %} {# boucle sur le tableau de jeux #}
+                        {% set totalMinPlayers = jeu.min_players + totalMinPlayers %} {# calcul du total de joueurs min. #}
+                        {% set totalMaxPlayers = jeu.max_players + totalMaxPlayers %} {# calcul du total de joueurs max. #}
+                        {% set totalMinimumAge = jeu.minimum_age + totalMinimumAge %} {# calcul du total d'âges minimum' #}
+                    {% endfor %}
+                    <tfoot class="table-dark">
+                        <tr>
+                            <th>{{ jeux|length }}</th>
+                            <th colspan="4"></th>
+                            <th>{{ (totalMinPlayers / jeux|length)|number_format(0, ',', ' ') }} - {{ (totalMaxPlayers / jeux|length)|number_format(0, ',', ' ') }}</th>
+                            <th></th>
+                            <th>{{ (totalMinimumAge / jeux|length)|number_format(0, ',', ' ') }}</th>
+                        </tr>
+                    </tfoot>
+                {% endif %}
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

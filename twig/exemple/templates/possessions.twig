@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}possessions{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block main %}
+
+    <div class="row" id="possessions">
+
+        <div class="col-12 text-center mb-5">
+            <h1>Possessions</h1>
+        </div>
+
+        <div class="col-12">
+            <table class="table table-hover text-center">
+                <thead>
+                    <tr class="table-dark text-uppercase">
+                        <td>N°</td>
+                        <td colspan="2">Jeu</td>
+                        <td colspan="2">Membre</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for possession in possessions|reverse %}
+                        <tr>
+                            <td>{{ loop.revindex }}</td>
+                            <td><img src="{{ asset('img/game/' ~ possession.game.img) }}" alt="photo principale {{ possession.game.name }}"></td>
+                            <td>{{ possession.game.name }}</td> {# <?= $possession['game']['name'] ?> #}
+                            <td><img src="{{ asset('img/user/' ~ possession.user.img) }}" alt="avatar {{ possession.user.nickname }}"></td>
+                            <td>{{ possession.user.nickname }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Personne ne possède de jeu (pour le moment)</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot class="table-dark">
+                    <tr>
+                        <th>{{ possessions|length }}</th>
+                        <th colspan="4"></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+    </div>
+
+{% endblock %}

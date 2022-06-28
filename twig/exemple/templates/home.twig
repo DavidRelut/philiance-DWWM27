@@ -1,0 +1,31 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}accueil{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block main %}
+
+    {# {{ parent() }} #}
+    
+    <div class="row">
+
+        <div class="col-12 text-center mb-5">
+            <h1>Table Top Games</h1>
+        </div>
+
+        <div class="col-12">
+            <ul>
+                <li>Nombre de jeux :</li>
+                <li>Nombre de membres :</li>
+                <li>Nombre de possessions :</li>
+            </ul>
+        </div>
+
+    </div>
+
+{% endblock %}
