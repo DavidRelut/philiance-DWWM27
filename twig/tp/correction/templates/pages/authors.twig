@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}auteurs{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+
+        <div class="col-12">
+            <h1 class="text-center">Auteurs</h1>
+        </div>
+
+        <div class="col-12">
+            {% for author in authors %}
+            {% else %}
+                <p class="text-center">Aucun auteur trouvé</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+   
+
+{% endblock %}

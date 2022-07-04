@@ -1,0 +1,33 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}{{ post.game }}{% endblock %}
+
+{% block main %}
+
+    <div class="row align-items-center" id="post">
+
+        <div class="col-12 mb-5">
+            <h1 class="text-center">{{ post.game }}</h1>
+        </div>
+        
+        <div class="col-3 offset-1">
+            <img src="img/post/{{ post.img }}" alt="boîte du jeu {{ post.game }}" class="w-100">
+        </div>
+        
+        <div class="col-7 ps-5">
+            <h2 class="mb-5">Description</h2>
+            {{ post.description|raw }}
+        </div>
+
+        <div class="col-10 offset-1 my-5">
+            <h2 class="text-center">Test</h2>
+            {{ post.test|raw }}
+        </div>
+
+    </div>
+    
+    {# {{ dump(post) }} #}
+
+{% endblock %}

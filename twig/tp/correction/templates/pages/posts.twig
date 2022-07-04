@@ -1,0 +1,42 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}articles{% endblock %}
+
+{% block main %}
+
+    <h1 class="text-center">Articles</h1>
+
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>N°</th>
+                        <th colspan="2">Jeu</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for post in posts %}
+                        <tr>
+                            <td>{{ loop.revindex }}</td>
+                            <td><img class="card-img-top" src="./img/post/{{ post.img }}" alt="boîte du jeu {{ post.game }}"></td>
+                            <td>{{ post.game }}</td>
+                            <td>{{ post.description|truncate50|raw }}</td>
+                            <td><a href="index.php?page=post&id={{ post.id }}" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i></a></td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">Aucun article trouvé</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

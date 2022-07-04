@@ -1,0 +1,44 @@
+{% extends 'base.twig' %}
+
+{% block description %}{% endblock %}
+
+{% block title %}accueil{% endblock %}
+
+{% block main %}
+
+    <div class="row">
+
+        <div class="col-12">
+            <h1 class="text-center">Table Top Games</h1>
+        </div>
+
+        <div class="col-12">
+            <div class="row">
+                <h2 class="my-3">Derniers articles</h2>
+                {% for post in posts|reverse %}
+                    {% if loop.index <= 3 %}
+                        <div class="col-4 p-3">
+                        <div class="card">
+                            <img class="card-img-top" src="./img/post/{{ post.img }}" alt="boîte du jeu {{ post.game }}">
+                            <div class="card-body">
+                                <h3 class="card-title">{{ post.game }}</h3>
+                                <p class="card-text">{{ post.description|truncate50|raw }}</p>
+                                <a href="index.php?page=post&id={{ post.id }}" class="btn btn-primary">Voir le test</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                {% endfor %}
+            </div>
+        </div>
+        
+        <h2 class="my-3">Derniers auteurs</h2>
+        {% for author in authors %}
+        {% else %}
+            <p>Aucun auteur n'a été trouvé</p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

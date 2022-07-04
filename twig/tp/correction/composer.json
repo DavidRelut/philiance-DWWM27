@@ -1,0 +1,17 @@
+{
+    "name": "davidhurtrel/evaluation",
+    "autoload": {
+        "psr-4": {
+            "Davidhurtrel\\Evaluation\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "davidHurtrel",
+            "email": "david.hurtrel@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.4"
+    }
+}
